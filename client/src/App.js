@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Engagement from './Engagement';
 
 class App extends Component {
   state = {
@@ -10,6 +11,7 @@ class App extends Component {
       <div className='App'>
         <div className='ui text container'>
           Joyful HR
+          <Engagement />
         </div>
       </div>
     );

@@ -10,7 +10,6 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='ui text container'>
-          Joyful HR
           <Engagement />
         </div>
       </div>

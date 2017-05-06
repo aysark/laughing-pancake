@@ -26,7 +26,13 @@ class Engagement extends Component {
         console.log("Hitting Fetch Records")
         this.setState({
             users: [{user_id: 1}, {user_id: 2}, {user_id: 3}, {user_id: 4}, {user_id: 5}],
-            surverys: [ [ [{question: 1, answer: 2}, {question: 2, answer: 2}, {question: 3, answer: 2}, {question: 4, answer: 3}, {question: 5, answer: 3}], [{question: 1, answer: 2}, {question: 2, answer: 2}, {question: 3, answer: 2}, {question: 4, answer: 3}, {question: 5, answer: 3}], [{question: 1, answer: 2}, {question: 2, answer: 2}, {question: 3, answer: 2}, {question: 4, answer: 3}, {question: 5, answer: 3}], [{question: 1, answer: 2}, {question: 2, answer: 2}, {question: 3, answer: 2}, {question: 4, answer: 3}, {question: 5, answer: 3}], [{question: 1, answer: 2}, {question: 2, answer: 2}, {question: 3, answer: 2}, {question: 4, answer: 3}, {question: 5, answer: 3}] ] ]
+            surverys: [ 
+                [{question: 1, answer: 2}, {question: 2, answer: 2}, {question: 3, answer: 2}, {question: 4, answer: 3}, {question: 5, answer: 3}], 
+                [{question: 1, answer: 2}, {question: 2, answer: 2}, {question: 3, answer: 2}, {question: 4, answer: 3}, {question: 5, answer: 3}], 
+                [{question: 1, answer: 2}, {question: 2, answer: 2}, {question: 3, answer: 2}, {question: 4, answer: 3}, {question: 5, answer: 3}], 
+                [{question: 1, answer: 2}, {question: 2, answer: 2}, {question: 3, answer: 2}, {question: 4, answer: 3}, {question: 5, answer: 3}], 
+                [{question: 1, answer: 2}, {question: 2, answer: 2}, {question: 3, answer: 2}, {question: 4, answer: 3}, {question: 5, answer: 3}]  
+            ]
         })
 
     };
@@ -47,13 +53,14 @@ class Engagement extends Component {
                 <div>
                     <div id="user_info">
                         <img src="https://cdn0.iconfinder.com/data/icons/handsome-man-avatars/283/stock_man_avatar-16-512.png"/>
-                    </div>
-
-                    <div id="graph data">
                         {this.state.users.map(function(user) {
                             return <li key={user.user_id}>Employee {user.user_id}</li>
                             })
                         }
+                    </div>
+
+                    <div id="graph data">
+
                     </div>
                 </div>
         );

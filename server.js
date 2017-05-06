@@ -23,9 +23,11 @@ app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 
 var users = require('./routes/users');
+var surveys = require('./routes/surveys');
 
 // app.use('/', routes);
 app.use('/api/users', users);
+app.use('/api/surveys', surveys);
 
 // app.get('/api/food', (req, res) => {
 //   const param = req.query.q;

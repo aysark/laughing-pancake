@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var User = mongoose.model('User');
+var Survey = mongoose.model('Survey');
 
-/* GET a user by full name */
+/* GET a survey by full name */
 router.get('/search', function(req, res, next) {
-  User.find({name: new RegExp('^'+req.query.name, "i")}, (err, user, msg) => {
+  Survey.find({name: new RegExp('^'+req.query.name, "i")}, (err, survey, msg) => {
     if (err) {
       if (err.name === 'CastError') {
         res.status(400);
@@ -14,14 +14,14 @@ router.get('/search', function(req, res, next) {
       res.status(500);
       return res.render('error', { error: err });
     }
-    res.json(user);
+    res.json(survey);
   });
 });
 
-/* CREATE a user */
+/* CREATE a survey */
 router.post('/', function(req, res, next) {
-  var user = new User(req.body);
-  user.save((err, result) => {
+  var survey = new Survey(req.body);
+  survey.save((err, result) => {
     if (err) {
       if (err.name === 'MongoError' && err.code === 11000) {
         res.status(400);
@@ -35,9 +35,9 @@ router.post('/', function(req, res, next) {
   });
 });
 
-/* UPDATE a user */
+/* UPDATE a survey */
 router.put('/:id', function(req, res, next) {
-  User.update({_id: req.params.id}, {$set: req.body}, (err, result) => {
+  Survey.update({_id: req.params.id}, {$set: req.body}, (err, result) => {
     if (err) {
       if (err.name === 'CastError') {
         res.status(400);
@@ -55,9 +55,9 @@ router.put('/:id', function(req, res, next) {
 
 });
 
-/* GET a user */
+/* GET a survey */
 router.get('/:id', function(req, res, next) {
-  User.findById(req.params.id, (err, user, msg) => {
+  Survey.findById(req.params.id, (err, survey, msg) => {
     if (err) {
       if (err.name === 'CastError') {
         res.status(400);
@@ -66,13 +66,13 @@ router.get('/:id', function(req, res, next) {
       res.status(500);
       return res.render('error', { error: err });
     }
-    res.json(user);
+    res.json(survey);
   });
 });
 
-/* DELETE a user */
+/* DELETE a survey */
 router.delete('/:id', function(req, res, next) {
-  User.remove({_id: req.params.id}, (err, result) => {
+  Survey.remove({_id: req.params.id}, (err, result) => {
     if (err) {
       if (err.name === 'CastError') {
         res.status(400);
@@ -90,10 +90,10 @@ router.delete('/:id', function(req, res, next) {
   });
 });
 
-/* GET users */
+/* GET surveys */
 router.get('/', function(req, res, next) {
-  User.find((err, users) => {
-    res.json(users);
+  Survey.find((err, surveys) => {
+    res.json(surveys);
   });
 });
 

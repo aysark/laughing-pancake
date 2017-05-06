@@ -3,7 +3,7 @@ var glob = require('glob');
 
 mongoose.Promise = global.Promise;
 mongoose.set('debug', true);
-mongoose.connect('mongodb://localhost/gdb', function (err) {
+mongoose.connect('mongodb://localhost/joyfulhr', function (err) {
     if (err) {
         console.error(err);
         throw err;

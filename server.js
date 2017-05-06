@@ -29,27 +29,12 @@ var surveys = require('./routes/surveys');
 app.use('/api/users', users);
 app.use('/api/surveys', surveys);
 
-// app.get('/api/food', (req, res) => {
-//   const param = req.query.q;
-//
-//   if (!param) {
-//     res.json({
-//       error: 'Missing required parameter `q`',
-//     });
-//     return;
-//   }
-//
-//   res.json([]);
-// });
-
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
-
 
 app.listen(app.get('port'), () => {
   console.log(`Find the server at: http://localhost:${app.get('port')}/`); // eslint-disable-line no-console

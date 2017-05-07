@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Engagement from './Engagement';
 
 import 'semantic-ui-css/semantic.min.css';
 
@@ -50,6 +51,12 @@ class App extends Component {
 
     return (
       <div className='App'>
+
+        <div className='ui text container'>
+          <Engagement />
+        </div>
+
+
         <Grid>
           <Grid.Row verticalAlign='top'>
             <Container fluid>
@@ -81,6 +88,7 @@ class App extends Component {
             </Container>
           </Grid.Row>
         </Grid>
+
       </div>
     );
   }

@@ -5,7 +5,7 @@ var SurveysSchema = new Schema({
   _user: {
       type: Schema.Types.ObjectId,
       ref: 'User',
-      unique: true,
+      unique: false,
       index: true,
       required: 'Please provide a reference User object'
   },

@@ -62,7 +62,7 @@ class App extends Component {
             </Grid.Row>
             <Grid.Row>
               <Container>
-                Footer
+                
               </Container>
             </Grid.Row>
           </Grid>

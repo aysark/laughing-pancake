@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Line, Radar} from 'react-chartjs-2';
+import { Grid, Container, Header, Menu, Segment, Icon, Button, Progress, Rating } from 'semantic-ui-react'
+
 
 
 class Engagement extends Component {
@@ -27,7 +29,7 @@ class Engagement extends Component {
         console.log("Hitting Fetch Records")
         this.setState({
             users: [{user_id: 1}, {user_id: 2}, {user_id: 3}, {user_id: 4}, {user_id: 5}],
-            surverys: [
+            surveys: [
                 [{question: 1, answer: 2}, {question: 2, answer: 2}, {question: 3, answer: 2}, {question: 4, answer: 3}, {question: 5, answer: 3}],
                 [{question: 1, answer: 2}, {question: 2, answer: 2}, {question: 3, answer: 2}, {question: 4, answer: 3}, {question: 5, answer: 3}],
                 [{question: 1, answer: 2}, {question: 2, answer: 2}, {question: 3, answer: 2}, {question: 4, answer: 3}, {question: 5, answer: 3}],
@@ -38,7 +40,7 @@ class Engagement extends Component {
 
     };
 
-    componentDidMount(){
+    componentWillMount(){
         this.fetchRecords();
     };
 
@@ -48,12 +50,42 @@ class Engagement extends Component {
         console.log(this.state);
         console.log(users);
         console.log(surveys);
+        console.log("PRINT THIS OUT")
+        console.log(this.state.surveys[0])
+        const importVolumeData = {
+          labels: ['Question 1', 'Question 2', 'Question 3', 'Question 4', 'Question 5'],
+          datasets: [
+            {
+              label: 'Import Volume',
+              fill: false,
+              lineTension: 0.1,
+              backgroundColor: 'rgba(75,192,192,0.4)',
+              borderColor: 'rgba(75,192,192,1)',
+              borderCapStyle: 'butt',
+              borderDash: [],
+              borderDashOffset: 0.0,
+              borderJoinStyle: 'miter',
+              pointBorderColor: 'rgba(75,192,192,1)',
+              pointBackgroundColor: '#fff',
+              pointBorderWidth: 1,
+              pointHoverRadius: 5,
+              pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+              pointHoverBorderColor: 'rgba(220,220,220,1)',
+              pointHoverBorderWidth: 2,
+              pointRadius: 1,
+              pointHitRadius: 10,
+              data: [      
+                 this.state.surveys[0][0]["answer"], this.state.surveys[0][1]["answer"], this.state.surveys[0][2]["answer"], this.state.surveys[0][3]["answer"], this.state.surveys[0][4]["answer"] 
+              ]
+            }
+
+          ]
+        };
 
         return (
 
-                <div>
+                <Container text>
                     <div id="user_info">
-                        <img src="https://cdn0.iconfinder.com/data/icons/handsome-man-avatars/283/stock_man_avatar-16-512.png"/>
                         {this.state.users.map(function(user) {
                             return <li key={user.user_id}>Employee {user.user_id}</li>
                             })
@@ -63,36 +95,10 @@ class Engagement extends Component {
                     <div id="graph data">
                       <Line data={importVolumeData} />
                     </div>
-                </div>
+                </Container>
         );
     }
 }
 
-const importVolumeData = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'Import Volume',
-      fill: false,
-      lineTension: 0.1,
-      backgroundColor: 'rgba(75,192,192,0.4)',
-      borderColor: 'rgba(75,192,192,1)',
-      borderCapStyle: 'butt',
-      borderDash: [],
-      borderDashOffset: 0.0,
-      borderJoinStyle: 'miter',
-      pointBorderColor: 'rgba(75,192,192,1)',
-      pointBackgroundColor: '#fff',
-      pointBorderWidth: 1,
-      pointHoverRadius: 5,
-      pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-      pointHoverBorderColor: 'rgba(220,220,220,1)',
-      pointHoverBorderWidth: 2,
-      pointRadius: 1,
-      pointHitRadius: 10,
-      data: [6500, 5900, 4000, 3100, 5600, 8500, 9100]
-    }
-  ]
-};
 
 export default Engagement;

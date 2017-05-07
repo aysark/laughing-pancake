@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
+import Engagement from './Engagement';
 import 'semantic-ui-css/semantic.min.css';
 
 import { Grid, Container, Header, Menu, Segment, Icon } from 'semantic-ui-react'
 
-class App extends Component {
+class Dashboard extends Component {
   state = {
     activeItem: 'survey'
   }
@@ -16,13 +16,12 @@ class App extends Component {
 
     const BodyContainer = () => (
       <Container text>
-        <Header as='h2'>Header</Header>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa strong. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede link mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.</p>
+        <Engagement />
       </Container>
     )
 
     return (
-      <div className='App'>
+      <div className='Dashboard'>
         <Grid>
           <Grid.Row verticalAlign='top'>
             <Container fluid>
@@ -53,4 +52,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Dashboard;
